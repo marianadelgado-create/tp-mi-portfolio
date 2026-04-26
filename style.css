@@ -1,25 +1,38 @@
-/* --- ESTILOS GENERALES (ESCRITORIO) --- */
+/* --- ESTILOS GENERALES --- */
+* {
+    box-sizing: border-box; /* Esto evita que los elementos se desborden */
+}
+
 body {
     font-family: 'Helvetica', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    width: 100%;
+    overflow-x: hidden; /* BLOQUEA el movimiento de costado */
 }
 
+/* --- HEADER --- */
 header {
     background-color: #ffffff;
     padding: 20px;
     border-bottom: 1px solid #ddd;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 1.5rem;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
     letter-spacing: 2px;
+}
+
+nav {
+    width: 100%;
 }
 
 nav ul {
@@ -27,116 +40,100 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-/* Secciones */
+/* --- SECCIONES --- */
 section {
-    padding: 40px 20px;
-    max-width: 1000px;
+    padding: 30px 15px;
+    max-width: 100%;
     margin: 0 auto;
+    display: block; /* Forzamos a que no haya cosas al lado de otras */
+    clear: both;
 }
 
-/* Grilla de Portfolio / Imágenes */
+/* --- PORTFOLIO (FOTOS) --- */
 .portfolio-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    margin-top: 20px;
 }
 
 .portfolio-item {
+    width: 100%;
+    max-width: 400px;
     background: #fff;
     padding: 10px;
     border: 1px solid #eee;
-    text-align: center;
 }
 
 .portfolio-item img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
 }
 
-/* Formulario y Calendario */
+/* --- CONTACTO Y CALENDARIO --- */
+/* Aquí es donde se amontonaban: los obligamos a ser independientes */
+.contacto-flex { /* Si tienes un contenedor que los envuelve */
+    display: flex;
+    flex-direction: column !important; 
+}
+
+#contacto, #calendario {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 30px;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
 }
 
 input, textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
     width: 100%;
-    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
 }
 
 iframe {
+    width: 100% !important;
+    min-height: 450px;
     border: none;
-    width: 100%;
-    height: 400px;
 }
 
-/* --- AJUSTES PARA CELULARES (RESPONSIVE) --- */
+/* --- FOOTER --- */
+footer {
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* --- RESPONSIVE ESPECÍFICO --- */
 @media (max-width: 768px) {
-    body {
-        overflow-x: hidden; /* Bloquea el movimiento lateral */
+    header h1 {
+        font-size: 1.1rem;
     }
-
-    header {
-        flex-direction: column; /* Nombre arriba, menú abajo */
-        text-align: center;
-        gap: 15px;
-    }
-
+    
     nav ul {
-        flex-direction: column; /* Botones uno debajo de otro */
-        gap: 10px;
-        width: 100%;
-    }
-
-    nav ul li {
-        background: #f9f9f9;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    section {
-        padding: 20px 15px;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    /* Forzamos a que las imágenes ocupen el ancho del celu */
-    .portfolio-container {
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .portfolio-item {
-        width: 100% !important;
-        max-width: 350px;
-        margin-bottom: 15px;
+    nav ul li {
+        width: 100%;
     }
 
-    /* Ajuste de textos para que no se pisen */
-    h1, h2 {
-        font-size: 1.2rem !important;
-    }
-
-    /* Aseguramos que el calendario no se desborde */
-    iframe {
-        height: 300px;
-        width: 100% !important;
+    /* Aseguramos que nada mida más que la pantalla */
+    img, iframe, table, form {
+        max-width: 100% !important;
     }
 }
