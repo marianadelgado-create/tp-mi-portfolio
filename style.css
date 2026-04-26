@@ -59,7 +59,17 @@ header {
     top: 0;
     z-index: 1000;
 }
-
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Pone los botones uno debajo del otro */
+    align-items: center;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 10px 0; /* Separa los botones para que no estén pegados */
+  }
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -144,6 +154,19 @@ nav {
     font-size: 2.2rem;
     color: var(--verde-principal);
     margin-bottom: 50px;
+}
+@media (max-width: 768px) {
+  /* Busca el nombre del contenedor de tus fotos, supongamos que es .portfolio-container */
+  .portfolio-container { 
+    display: flex;
+    flex-direction: column; /* Las apila verticalmente */
+    align-items: center;
+  }
+
+  .portfolio-item { /* O como se llame la caja de cada foto */
+    width: 90%; /* Que ocupen casi todo el ancho del celular */
+    margin-bottom: 20px;
+  }
 }
 
 .portfolio-grid {
