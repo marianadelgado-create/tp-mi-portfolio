@@ -6,11 +6,7 @@
     --gris-borde: #D1D1D1;
     --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-/* Esto se activa solo en pantallas de menos de 768px (celulares) */
-@media (max-width: 768px) {
-  body {
-    padding: 10px; /* Da un poco de margen a los bordes */
-  }
+
 
   .contenedor, section { 
     flex-direction: column; /* Si usas Flexbox, esto apila los elementos */
@@ -21,7 +17,7 @@
     max-width: 100%; /* Evita que las imágenes se salgan de la pantalla */
     height: auto;
   }
-}
+
 
 * {
     margin: 0;
@@ -291,3 +287,62 @@ footer {
 
 .email-footer { font-size: 1rem; margin: 15px 0; letter-spacing: 1px; }
 .copy { font-size: 0.7rem; opacity: 0.5; margin-top: 40px; text-transform: uppercase; }
+/* --- RESPONSIVE DESIGN (Media Query para Celulares) --- */
+
+@media (max-width: 768px) {
+    
+    /* 1. Ajustamos el tamaño de la letra del Hero para que no desborde */
+    .hero-text h1 {
+        font-size: 3.5rem; /* Más chico que en desktop */
+        text-align: center;
+    }
+
+    .initials-outline {
+        font-size: 5rem;
+        right: 0;
+        top: -10px;
+    }
+
+    /* 2. El Hero y el Sobre Mí pasan de estar uno al lado del otro a estar uno arriba del otro */
+    .hero-container, .about-flex, .contact-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-image img {
+        width: 250px; /* Foto de perfil un poco más chica en el celu */
+    }
+
+    /* 3. Las grillas (Portfolio y Servicios) pasan de 3 columnas a 1 sola */
+    .portfolio-grid, .services-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 40px;
+    }
+
+    .img-container {
+        height: 300px; /* Ajustamos la altura de las fotos del portfolio */
+    }
+
+    /* 4. Menú de navegación: lo centramos para el pulgar */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* 5. Ajustes de la sección Contacto */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Formulario y calendario uno debajo del otro */
+    }
+
+    .huge-bg-text {
+        font-size: 8rem; /* El MD gigante de fondo más chico */
+        bottom: 0;
+    }
+}
