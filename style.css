@@ -119,11 +119,12 @@ nav {
 
 .initials-outline {
     font-size: 25rem;
-    color: rgba(0, 77, 64, 0.05);
+    color:#004D40;
     position: absolute;
     right: -120px;
     top: 0;
     pointer-events: none;
+    opacity: 17%;
 }
 
 .subtitle {
@@ -227,6 +228,29 @@ nav {
 .service-card h3 { font-size: 1.2rem; color: var(--verde-principal); margin-bottom: 15px; }
 
 /* --- CONTACTO Y CALENDARIO --- */
+
+.contacto-header {
+    text-align: center; /* O left, según prefieras */
+    margin-bottom: 30px;
+    color: #010807; /* El color oscuro de tu marca */
+}
+
+.contacto-header h2 {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.contacto-header p {
+    font-size: 1.5rem; /* Un poco más grande para que destaque */
+    font-style: italic; /* Opcional, si quieres darle un toque más personal */
+    opacity: 0.8;
+}
+
+/* El resto del CSS del formulario se mantiene igual que antes */
+
 .contact-section { background: var(--blanco-fondo); position: relative; }
 .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; }
 
@@ -249,10 +273,58 @@ nav {
     cursor: pointer;
     font-weight: bold;
     letter-spacing: 2px;
-    transition: background 0.3s;
+    transition:cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
 }
 
 .btn-send:hover { background: var(--verde-principal); color: white; }
+/* Contenedor del formulario */
+.contacto-container {
+    max-width: 600px; /* O el ancho que prefieras */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.formulario-limpio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre campos */
+}
+
+/* Estilo de los campos */
+.formulario-limpio input, 
+.formulario-limpio textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(1, 8, 7, 0.1); /* Borde sutil */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo claro */
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto cuando haces clic para escribir */
+.formulario-limpio input:focus, 
+.formulario-limpio textarea:focus {
+    border-color: var(--verde-principal); /* El verde que usas en tu marca */
+    background-color: #fff;
+}
+
+/* El botón de la imagen */
+.btn-enviar {
+    background-color: #010807; /* El color oscuro de tu paleta */
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.btn-enviar:hover {
+    opacity: 0.8;
+}
 
 .huge-bg-text {
     position: absolute;
@@ -288,6 +360,30 @@ footer {
 .email-footer { font-size: 1rem; margin: 15px 0; letter-spacing: 1px; }
 .copy { font-size: 0.7rem; opacity: 0.5; margin-top: 40px; text-transform: uppercase; }
 /* --- RESPONSIVE DESIGN (Media Query para Celulares) --- */
+
+/* --- ANIMACIONES --- */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 0.15; /* Ajusta este valor según cuánto quieras que se vea */
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+
+
+
+
 
 @media (max-width: 768px) {
     
@@ -345,4 +441,8 @@ footer {
         font-size: 8rem; /* El MD gigante de fondo más chico */
         bottom: 0;
     }
+
+
+
+    
 }
