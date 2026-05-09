@@ -4,20 +4,8 @@
     --texto: #2D3436;
     --blanco-fondo: #F9F8F6;
     --gris-borde: #D1D1D1;
-    --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-
-  .contenedor, section { 
-    flex-direction: column; /* Si usas Flexbox, esto apila los elementos */
-    width: 100%; 
-  }
-
-  img {
-    max-width: 100%; /* Evita que las imágenes se salgan de la pantalla */
-    height: auto;
-  }
-
 
 * {
     margin: 0;
@@ -32,6 +20,7 @@ body {
     color: var(--texto);
     background-color: var(--blanco-fondo);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* --- TIPOGRAFÍAS --- */
@@ -90,46 +79,44 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    position: relative;
 }
 
 .hero-container {
-    display: flex;
-    align-items: center;
     width: 100%;
-    position: relative;
+    display: flex;
     justify-content: center;
 }
 
-.img-hero-subtle {
-    width: 20px;
-    opacity: 0.25;
-    filter: grayscale(30%);
-    transition: var(--transition);
+.hero-text {
+    position: relative;
+    text-align: left;
 }
 
-.img-hero-subtle:hover { opacity: 0.4; }
-
 .hero-text h1 {
-    font-size: 5.5rem;
+    font-size: 6rem;
     color: var(--verde-principal);
     line-height: 0.9;
+    z-index: 2;
     position: relative;
 }
 
 .initials-outline {
-    font-size: 25rem;
-    color:#004D40;
+    font-size: 18rem;
+    color: var(--verde-principal);
     position: absolute;
-    right: -120px;
-    top: 0;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
     pointer-events: none;
-    opacity: 17%;
+    opacity: 0.12;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
 }
 
 .subtitle {
     font-size: 1.1rem;
-    margin-top: 15px;
+    margin-top: 20px;
     color: var(--verde-principal);
     font-weight: 300;
     letter-spacing: 5px;
@@ -149,300 +136,242 @@ nav {
     gap: 30px;
 }
 
-.portfolio-item { text-align: center; }
-
 .img-container {
     border: 1px solid var(--gris-borde);
     height: 420px;
     overflow: hidden;
     margin-bottom: 20px;
-    transition: var(--transition);
+    background: #eee;
 }
 
 .img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%);
+    filter: grayscale(40%);
     transition: transform 0.8s ease, filter 0.8s ease;
 }
 
 .portfolio-item:hover .img-container img {
-    transform: scale(1.08);
-    filter: grayscale(0%) brightness(1.05);
+    transform: scale(1.05);
+    filter: grayscale(0%);
 }
 
-.portfolio-text h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--verde-principal); }
+.portfolio-text h3 { font-size: 1.1rem; color: var(--verde-principal); }
 .portfolio-text p { font-size: 0.85rem; font-style: italic; opacity: 0.7; }
 
-/* --- SOBRE MI --- */
-.about { background: #fff; border-top: 1px solid var(--gris-borde); }
-.about-flex { display: flex; gap: 70px; align-items: center; }
-.about-image img { 
-    width: 220px; 
-    border-radius: 50%; 
-    border: 1px solid var(--verde-principal); 
-    padding: 10px;
+/* --- SOBRE MI (NUEVO DISEÑO RECTANGULAR) --- */
+.about {
+    background: #fff;
+    padding: 100px 0;
 }
 
-.tools-grid { display: flex; gap: 12px; margin-top: 25px; }
-.tool {
-    border: 1px solid var(--texto);
-    padding: 8px 18px;
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 0.85rem;
+.about-flex {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen Rectangular con Efecto */
+.about-image-wrapper {
+    position: relative;
+    flex: 0 0 400px; /* Ancho fijo para mantener la proporción rectangular */
+    height: 500px;
+    overflow: hidden;
+    border-radius: 4px; /* Bordes apenas redondeados para elegancia */
+    box-shadow: 20px 20px 0px var(--verde-principal); /* Sombra sólida decorativa */
     transition: var(--transition);
 }
 
-.tool:hover {
+.about-img-rect {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1); /* Efecto blanco y negro profesional */
+    transition: all 0.6s ease;
+}
+
+.about-image-wrapper:hover .about-img-rect {
+    filter: grayscale(0%) contrast(1); /* Vuelve al color al pasar el mouse */
+    transform: scale(1.05);
+}
+
+/* Contenido */
+.about-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-header h2 {
+    font-size: 2.5rem;
+    color: var(--verde-principal);
+    margin-bottom: 5px;
+}
+
+.about-line {
+    width: 60px;
+    height: 3px;
     background: var(--verde-principal);
-    color: white;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: var(--texto);
+}
+
+/* Herramientas Mejor Distribuidas */
+.tools-container h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.tool-box {
+    background: var(--blanco-fondo);
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--gris-borde);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.tool-tag {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--verde-principal);
+    margin-bottom: 5px;
+}
+
+.tool-box p {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    opacity: 0.6;
+}
+
+/* Efecto hover en herramientas */
+.tool-box:hover {
+    background: var(--verde-principal);
     border-color: var(--verde-principal);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+}
+
+.tool-box:hover .tool-tag, 
+.tool-box:hover p {
+    color: white;
+    opacity: 1;
+}
+
+/* Responsive para esta sección */
+@media (max-width: 992px) {
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image-wrapper {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 350px;
+        height: 450px;
+        box-shadow: 10px 10px 0px var(--verde-principal);
+    }
+    .about-line { margin: 0 auto 30px; }
+    .tools-grid { justify-content: center; }
 }
 
 /* --- SERVICIOS --- */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; text-align: center; }
+.service-png { width: 100px; margin-bottom: 20px; transition: transform 0.3s; }
+.service-card:hover .service-png { transform: scale(1.1); }
 
-.service-icon-wrapper {
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+/* --- CONTACTO --- */
+.contact-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; 
+    align-items: start;
 }
 
-.service-png {
-    width: 140px;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: var(--transition);
-}
+.contacto-header { margin-bottom: 30px; }
+.contacto-header p { font-style: italic; font-size: 1.2rem; }
 
-.service-card:hover .service-png {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.service-card h3 { font-size: 1.2rem; color: var(--verde-principal); margin-bottom: 15px; }
-
-/* --- CONTACTO Y CALENDARIO --- */
-
-.contacto-header {
-    text-align: center; /* O left, según prefieras */
-    margin-bottom: 30px;
-    color: #010807; /* El color oscuro de tu marca */
-}
-
-.contacto-header h2 {
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-    font-weight: 300;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.contacto-header p {
-    font-size: 1.5rem; /* Un poco más grande para que destaque */
-    font-style: italic; /* Opcional, si quieres darle un toque más personal */
-    opacity: 0.8;
-}
-
-/* El resto del CSS del formulario se mantiene igual que antes */
-
-.contact-section { background: var(--blanco-fondo); position: relative; }
-.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; }
-
-.contact-form { position: relative; z-index: 5; }
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: none;
-    border-bottom: 1px solid var(--gris-borde);
-    background: transparent;
-    font-family: inherit;
-}
-
-.btn-send {
-    background: #D1D1D1;
-    border: none;
+.formulario-limpio { display: flex; flex-direction: column; gap: 15px; }
+.formulario-limpio input, .formulario-limpio textarea {
     padding: 15px;
-    width: 100%;
-    cursor: pointer;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition:cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
-}
-
-.btn-send:hover { background: var(--verde-principal); color: white; }
-/* Contenedor del formulario */
-.contacto-container {
-    max-width: 600px; /* O el ancho que prefieras */
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.formulario-limpio {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espacio entre campos */
-}
-
-/* Estilo de los campos */
-.formulario-limpio input, 
-.formulario-limpio textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid rgba(1, 8, 7, 0.1); /* Borde sutil */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo claro */
+    border: 1px solid var(--gris-borde);
+    background: white;
     font-family: inherit;
-    font-size: 1rem;
     outline: none;
-    transition: all 0.3s ease;
 }
 
-/* Efecto cuando haces clic para escribir */
-.formulario-limpio input:focus, 
-.formulario-limpio textarea:focus {
-    border-color: var(--verde-principal); /* El verde que usas en tu marca */
-    background-color: #fff;
-}
+.formulario-limpio input:focus { border-color: var(--verde-principal); }
 
-/* El botón de la imagen */
 .btn-enviar {
-    background-color: #010807; /* El color oscuro de tu paleta */
+    background: var(--verde-principal);
     color: white;
-    padding: 12px;
+    padding: 15px;
     border: none;
+    font-weight: bold;
     cursor: pointer;
     letter-spacing: 2px;
-    font-weight: bold;
     transition: opacity 0.3s;
 }
 
-.btn-enviar:hover {
-    opacity: 0.8;
-}
-
-.huge-bg-text {
-    position: absolute;
-    bottom: -30px;
-    right: 0;
-    font-size: 15rem;
-    color: rgba(0, 77, 64, 0.03);
-    font-weight: bold;
-    z-index: -1;
-}
+.btn-enviar:hover { opacity: 0.9; }
 
 .calendar-box {
     background: white;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-radius: 5px;
+    border: 1px solid var(--gris-borde);
+    border-radius: 12px;
 }
 
-.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 10px; }
-.day-name { font-weight: bold; color: var(--verde-principal); margin-bottom: 10px; }
-.cal-days span { padding: 10px; font-size: 0.9rem; }
-.active { background: var(--verde-principal); color: white; border-radius: 50%; cursor: pointer; }
-.inactive { opacity: 0.3; }
+.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 10px; margin-top: 15px; }
+.day-name { font-weight: bold; color: var(--verde-principal); }
+.active { background: var(--verde-principal); color: white; border-radius: 50%; }
 
 /* --- FOOTER --- */
 footer {
     background: var(--verde-principal);
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
 }
 
-.email-footer { font-size: 1rem; margin: 15px 0; letter-spacing: 1px; }
-.copy { font-size: 0.7rem; opacity: 0.5; margin-top: 40px; text-transform: uppercase; }
-/* --- RESPONSIVE DESIGN (Media Query para Celulares) --- */
-
-/* --- ANIMACIONES --- */
-@keyframes flotar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.qr-container { margin: 30px 0; }
+.qr-code { 
+    width: 100px; 
+    background: white; 
+    padding: 5px; 
+    border-radius: 5px;
 }
 
-@keyframes aparecer {
-    0% {
-        opacity: 0;
-        transform: translateX(50px);
-        filter: blur(10px);
-    }
-    100% {
-        opacity: 0.15; /* Ajusta este valor según cuánto quieras que se vea */
-        transform: translateX(0);
-        filter: blur(0);
-    }
-}
+.copy { font-size: 0.7rem; opacity: 0.6; margin-top: 30px; }
 
-
-
-
-
-
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    
-    /* 1. Ajustamos el tamaño de la letra del Hero para que no desborde */
-    .hero-text h1 {
-        font-size: 3.5rem; /* Más chico que en desktop */
-        text-align: center;
-    }
-
-    .initials-outline {
-        font-size: 5rem;
-        right: 0;
-        top: -10px;
-    }
-
-    /* 2. El Hero y el Sobre Mí pasan de estar uno al lado del otro a estar uno arriba del otro */
-    .hero-container, .about-flex, .contact-grid {
+    .hero-text h1 { font-size: 3.5rem; }
+    .initials-outline { font-size: 8rem; right: -20px; }
+    .portfolio-grid, .services-grid, .about-flex, .contact-grid {
+        grid-template-columns: 1fr;
         flex-direction: column;
         text-align: center;
-        gap: 30px;
-    }
-
-    .about-image img {
-        width: 250px; /* Foto de perfil un poco más chica en el celu */
-    }
-
-    /* 3. Las grillas (Portfolio y Servicios) pasan de 3 columnas a 1 sola */
-    .portfolio-grid, .services-grid {
-        grid-template-columns: 1fr; /* Una sola columna */
         gap: 40px;
     }
-
-    .img-container {
-        height: 300px; /* Ajustamos la altura de las fotos del portfolio */
-    }
-
-    /* 4. Menú de navegación: lo centramos para el pulgar */
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    /* 5. Ajustes de la sección Contacto */
-    .contact-grid {
-        grid-template-columns: 1fr; /* Formulario y calendario uno debajo del otro */
-    }
-
-    .huge-bg-text {
-        font-size: 8rem; /* El MD gigante de fondo más chico */
-        bottom: 0;
-    }
-
-
-
-    
+    .tools-grid { justify-content: center; flex-wrap: wrap; }
+    .about-image img { width: 200px; }
 }
