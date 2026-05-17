@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.09 87.37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7a8f9c;
+      }
+
+      .cls-2 {
+        fill: #2b3436;
+        font-size: 12px;
+      }
+
+      .cls-2, .cls-3 {
+        font-family: Poppins-Regular, Poppins;
+      }
+
+      .cls-3 {
+        fill: #2b3238;
+        font-size: 9px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M73.22,70.32h-11.05V31.31c0-11.17-9.09-20.26-20.26-20.26s-20.26,9.09-20.26,20.26v35.33h2.46v-22.1h10.64v-3.68h-10.64v-9.55c0-9.82,7.99-17.8,17.8-17.8s17.8,7.99,17.8,17.8h-3.68c0-7.78-6.33-14.12-14.12-14.12s-14.12,6.33-14.12,14.12v5.87h10.64v11.05h-10.64v22.1h-9.82V31.31c0-13.2,10.74-23.94,23.94-23.94s23.94,10.74,23.94,23.94v35.33h3.68V31.31c0-15.23-12.39-27.62-27.63-27.62S14.29,16.08,14.29,31.31v39.02h-3.68V31.31C10.61,14.04,24.65,0,41.92,0s31.31,14.04,31.31,31.31v39.02Z"/>
+  <text class="cls-2" transform="translate(0 80.51)"><tspan x="0" y="0">ALMA EN FOCO</tspan></text>
+  <text class="cls-3" transform="translate(86.48 24.36)"><tspan x="0" y="0">&quot;Un espacio de introspección</tspan><tspan x="0" y="10.8">y claridad diseñado para </tspan><tspan x="0" y="21.6">guiar el autodescubrimiento</tspan><tspan x="0" y="32.4">a través de la palabra.&quot;</tspan></text>
+</svg>
