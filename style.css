@@ -124,49 +124,89 @@ nav {
     letter-spacing: 5px;
 }
 
-/* --- PORTFOLIO --- */
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: var(--gris-lavanda-oscuro);
-    margin-bottom: 50px;
-}
-
+/* --- EFECTOS E INTERACTIVIDAD EN PORTFOLIO --- */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    margin-top: 40px;
 }
 
+/* Tarjeta contenedora con enlace */
 .portfolio-item {
     text-decoration: none;
     color: inherit;
     display: block;
-}
-
-.img-container {
-    border: 1px solid var(--gris-borde);
-    height: 420px;
+    background: transparent;
+    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 20px;
-    background: #eee;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.img-container img {
+/* Contenedor de la foto para recortar el zoom */
+.portfolio-img-container {
+    width: 100%;
+    height: 350px; /* Altura fija elegante para nivelar las 3 tarjetas */
+    overflow: hidden;
+    position: relative;
+    background-color: #f4f1ea; /* Fondo champán suave mientras cargan las fotos */
+}
+
+/* La imagen y su transición estilo "Seda" */
+.portfolio-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(40%);
-    transition: transform 0.8s ease, filter 0.8s ease;
+    filter: grayscale(20%) brightness(95%); /* Un sutil toque analógico inicial */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
 }
 
-.portfolio-item:hover .img-container img {
+/* Textos informativos debajo de la foto */
+.portfolio-info {
+    padding: 20px 5px;
+}
+
+.portfolio-info h3 {
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 5px;
+    color: #2c2c2c;
+}
+
+.portfolio-info p {
+    font-size: 0.95rem;
+    color: #706f6c;
+    font-weight: 300;
+}
+
+/* El llamado a la acción oculto sutilmente */
+.ver-mas {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--verde-principal, #1a7a7f); /* Se adapta a tu color de acento */
+    opacity: 0.6;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* === EFECTO INTERACTIVO (HOVER) === */
+.portfolio-item:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta milimétricamente */
+}
+
+/* Al pasar el mouse por la tarjeta, la foto hace un zoom ultra pausado y gana color */
+.portfolio-item:hover .portfolio-img {
     transform: scale(1.05);
-    filter: grayscale(0%);
+    filter: grayscale(0%) brightness(100%);
 }
 
-.portfolio-text h3 { font-size: 1.1rem; color: var(--gris-lavanda-oscuro); }
-.portfolio-text p { font-size: 0.85rem; font-style: italic; opacity: 0.7; }
+/* El llamado a la acción se desliza suavemente hacia la derecha */
+.portfolio-item:hover .ver-mas {
+    opacity: 1;
+    transform: translateX(5px);
+}
 
 /* --- SOBRE MI --- */
 .about {
