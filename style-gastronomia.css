@@ -1,14 +1,12 @@
-/* --- VARIABLES DE MARCA (Coherencia Minimalista) --- */
+/* --- VARIABLES DE COLOR (Paleta Seda Minimalista) --- */
 :root {
-    --blanco-arena: #F9F6F0;
-    --lavanda-desat: #D8CEE0;
-    --gris-oscuro: #2D2A2E;
-    --gris-lavanda: #5D5A60;
-    --lineas-sutiles: rgba(45, 42, 46, 0.08);
-    --instagram-bg: #FFFFFF;
+    --blanco-arena: #f9f6f0;
+    --lavanda-desaturado: #e5def1;
+    --gris-lavanda-oscuro: #2a2633;
+    --texto-suave: #534e5d;
+    --oro-marfil: #ebdcb9;
 }
 
-/* --- REGLAS GENERALES Y RESPIRACIÓN --- */
 * {
     margin: 0;
     padding: 0;
@@ -18,378 +16,217 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--blanco-arena);
-    color: var(--gris-oscuro);
-    line-height: 1.7;
+    color: var(--gris-lavanda-oscuro);
+    line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 40px;
 }
 
-/* Contenedores para modular el aire visual */
-.contenedor-chico {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.contenedor-mediano {
-    max-width: 950px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Títulos con tipografía elegante serif */
-h1, h2, h3, h4, .titulo-editorial {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-/* --- BOTÓN ELEGANTE DE REGRESO --- */
-.btn-volver {
-    position: fixed;
-    top: 30px;
-    left: 40px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+/* --- BOTÓN VOLVER --- */
+.btn-back {
+    display: inline-block;
+    margin: 40px 0 0 50px;
     text-decoration: none;
-    color: var(--gris-lavanda);
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    z-index: 100;
-    transition: all 0.4s ease;
-    padding: 8px 16px;
-    border-radius: 4px;
-}
-
-.btn-volver:hover {
-    color: var(--gris-oscuro);
-    background-color: rgba(216, 206, 224, 0.3); /* Toque sutil lavanda */
-    transform: translateX(-3px);
-}
-
-/* --- 1. HERO SECTION (Layout Asimétrico Editorial) --- */
-.hero-gastronomia {
-    padding: 100px 0 150px 0; /* Margen de 150px inferior para generar pausa */
-    text-align: center;
-}
-
-.hero-categoria {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--gris-lavanda);
-    display: block;
-    margin-bottom: 20px;
-}
-
-.hero-gastronomia h1 {
-    font-size: 4rem;
-    margin-bottom: 25px;
-    color: var(--gris-oscuro);
-}
-
-.hero-bajada {
-    max-width: 650px;
-    margin: 0 auto 60px auto;
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--gris-lavanda);
-}
-
-.hero-imagen-wrapper {
-    width: 100%;
-    max-width: 1100px;
-    height: 550px;
-    margin: 0 auto;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Ajuste de imagen placeholder si no existe */
-    background-color: #EAE5DC;
-}
-
-/* --- 2. EL DIAGNÓSTICO (Separación amplia de 150px) --- */
-.seccion-diagnostico {
-    padding-bottom: 150px; /* Margen de respiro solicitado */
-}
-
-.titulo-editorial {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.titulo-editorial::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 1px;
-    background-color: var(--gris-lavanda);
-}
-
-.diagnostico-grid {
-    display: grid;
-    grid-template-columns: 1.8fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.diagnostico-texto p {
-    font-size: 1.1rem;
-    color: var(--gris-lavanda);
-    font-weight: 300;
-}
-
-.diagnostico-detalles {
-    border-left: 1px solid var(--lineas-sutiles);
-    padding-left: 30px;
-}
-
-.detalle-item {
-    margin-bottom: 20px;
+    color: var(--texto-suave);
     font-size: 0.9rem;
-    color: var(--gris-lavanda);
-}
-
-.detalle-item strong {
-    display: block;
-    color: var(--gris-oscuro);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 4px;
-}
-
-/* --- 3. IDENTIDAD INSTAGRAM (Estilo Maqueta Limpia) --- */
-.seccion-identidad-ig {
-    padding: 120px 0 150px 0;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-top: 1px solid var(--lineas-sutiles);
-    border-bottom: 1px solid var(--lineas-sutiles);
-}
-
-.subtitulo-sutil {
-    font-size: 1.2rem;
-    color: var(--gris-lavanda);
-    text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.85rem;
-    margin-bottom: 30px;
-    text-align: center;
+    transition: color 0.3s ease;
 }
 
-/* Subsección A: Perfil Simulado */
-.perfil-instagram-simulado {
-    background-color: var(--instagram-bg);
-    border: 1px solid var(--lineas-sutiles);
-    padding: 40px;
-    max-width: 650px;
-    margin: 0 auto 80px auto;
-    border-radius: 8px;
+.btn-back:hover {
+    color: var(--gris-lavanda-oscuro);
 }
 
-.perfil-encabezado {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-.perfil-foto-placeholder {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background-color: var(--blanco-arena);
-    overflow: hidden;
-    flex-shrink: 0;
-    border: 1px solid var(--lineas-sutiles);
-}
-
-.perfil-foto-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.perfil-datos h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
-
-.perfil-bio {
-    font-size: 0.9rem;
-    color: var(--gris-lavanda);
-    line-height: 1.5;
-}
-
-/* Subsección B: Historias Destacadas (Flex horizontal) */
-.historias-destacadas-container {
-    margin-bottom: 90px;
-}
-
-.historias-flex {
-    display: flex;
-    justify-content: space-around;
-    max-width: 700px;
+/* --- CONTENEDOR PRINCIPAL Y AIRES (150px) --- */
+.case-study-container {
+    max-width: 1000px;
     margin: 0 auto;
-    gap: 20px;
-}
-
-.historia-item {
+    padding: 60px 20px 150px 20px; /* Manteniendo la pausa visual abajo */
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.circulo-historia {
+.project-header {
+    margin-bottom: 80px;
+}
+
+.project-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.project-subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--texto-suave);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* --- SECCIÓN HISTORIAS DESTACADAS --- */
+.instagram-stories {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.story-item {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    letter-spacing: 1px;
+}
+
+.story-circle {
     width: 75px;
     height: 75px;
-    border-radius: 50%; /* Portadas en círculos perfectos como pediste */
-    background-color: var(--instagram-bg);
-    border: 1px solid var(--lineas-sutiles);
+    border-radius: 50%;
+    border: 2px solid var(--lavanda-desaturado);
     padding: 3px;
-    margin-bottom: 10px;
-    transition: transform 0.4s ease;
+    background: #fff;
+    margin-bottom: 8px;
     overflow: hidden;
+    transition: transform 0.4s ease;
 }
 
-.circulo-historia img {
+.story-circle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    background-color: #F0EDE6;
 }
 
-.historia-item:hover .circulo-historia {
-    transform: scale(1.06);
+.story-item:hover .story-circle {
+    transform: scale(1.05);
 }
 
-.historia-item span {
-    font-size: 0.78rem;
-    font-weight: 400;
-    color: var(--gris-lavanda);
+/* --- MAQUETA DEL SMARTPHONE --- */
+.phone-mockup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
-/* Subsección C: Grilla Dinámica del Feed con Hovers Blandos */
-.feed-grid {
+.smartphone {
+    position: relative;
+    width: 360px;
+    height: 720px;
+    background-color: #1e1b24; /* Color del borde físico del teléfono */
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 25px 50px -12px rgba(42, 38, 51, 0.25);
+}
+
+/* Detalles de Hardware del Celular (Notch/Bocina) */
+.smartphone::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #3c3746;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 32px;
+    overflow-y: auto; /* Permite scroll realista por si la grilla es alta */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Quitar barra de scroll fea del celular para mantener la pureza visual */
+.phone-screen::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Cabecera interna del feed simulado */
+.insta-app-header {
+    padding: 25px 15px 15px 15px;
+    border-bottom: 1px solid #f0edf5;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.insta-username {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* --- GRILLA DEL FEED (3 COLUMNAS SIMÉTRICAS) --- */
+.instagram-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 750px;
-    margin: 0 auto 30px auto;
+    gap: 2px; /* Separación fina típica de Instagram */
+    background-color: #fff;
 }
 
-.post-item {
-    aspect-ratio: 1 / 1; /* Cuadrados perfectos nativos */
-    background-color: var(--instagram-bg);
-    overflow: hidden;
+.feed-post {
     position: relative;
-    border: 1px solid var(--lineas-sutiles);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    aspect-ratio: 1 / 1; /* Cuadrados perfectos nativos */
+    overflow: hidden;
+    background-color: var(--lavanda-desaturado);
 }
 
-.post-item img {
+.feed-post img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: desaturate(15%);
-    transition: all 0.6s ease; /* Transición ralentizada de opacidad e intensidad */
-    background-color: #EFECE6;
+    transition: filter 0.5s ease, transform 0.5s ease;
 }
 
-/* Bloques tipográficos limpios de frase en el feed */
-.frase-post {
+/* Posteos de Frases / Bloques de Aire Textual */
+.text-post {
+    background-color: var(--blanco-arena);
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 25px;
-    text-align: center;
-    background-color: #FAF8F5;
+    align-items: center;
+    padding: 10px;
 }
 
-.frase-post p {
+.text-post p {
+    font-size: 0.65rem;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.italic-style p {
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
+    text-transform: none;
     font-style: italic;
-    color: var(--gris-lavanda);
-    line-height: 1.4;
+    font-size: 0.85rem;
+    color: var(--gris-lavanda-oscuro);
 }
 
-/* Interacción interactiva suave al pasar el mouse */
-.post-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(45, 42, 46, 0.05);
+/* --- INTERACCIÓN / HOVERS ELEGANTES --- */
+.feed-post:hover img {
+    transform: scale(1.05);
 }
 
-.post-item:hover img {
-    filter: desaturate(0%);
-    transform: scale(1.03);
-}
-
-.nota-grilla {
-    text-align: center;
-    font-size: 0.8rem;
-    font-style: italic;
-    color: var(--gris-lavanda);
-    margin-top: 20px;
-}
-
-/* --- FOOTER DEL CASO DE ESTUDIO --- */
-.footer-caso {
-    padding: 80px 0;
-    text-align: center;
-    border-top: 1px solid var(--lineas-sutiles);
-}
-
-.footer-caso p {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    color: var(--gris-lavanda);
-}
-
-/* --- ADAPTABILIDAD RESPONSIVE (Celulares) --- */
-@media (max-width: 768px) {
-    .btn-volver {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-    }
-    .hero-gastronomia h1 {
-        font-size: 2.6rem;
-    }
-    .hero-imagen-wrapper {
-        height: 320px;
-    }
-    .diagnostico-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .perfil-encabezado {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    .historias-flex {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
-        gap: 30px;
-    }
-    .hero-gastronomia, .seccion-diagnostico, .seccion-identidad-ig {
-        padding-bottom: 90px;
-    }
+.feed-post:hover.text-post {
+    background-color: var(--oro-marfil);
+    transition: background-color 0.4s ease;
 }
