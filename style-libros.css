@@ -1,0 +1,389 @@
+/* --- VARIABLES DE MARCA --- */
+:root {
+    --blanco-arena: #F4F1EA;
+    --lavanda-desaturado: #D8CEE0;
+    --champan-nude: #E2DACB;
+    --gris-carbon: #2B2A2C;
+    --texto-suave: #555358;
+    --transicion-seda: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- RESET DE PÁGINA --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--blanco-arena);
+    color: var(--gris-carbon);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* --- COMPONENTES GLOBALES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 20px; /* Gran aire y pausa visual entre secciones */
+}
+
+.bg-soft {
+    background-color: rgba(216, 206, 224, 0.15); /* Toque sutil lavanda de fondo */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-left: calc(50vw - 600px + 20px);
+    padding-right: calc(50vw - 600px + 20px);
+}
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title span {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.font-serif { font-family: 'Playfair Display', serif; }
+.font-sans { font-family: 'Montserrat', sans-serif; }
+
+/* --- BOTÓN VOLVER --- */
+.btn-volver {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--gris-carbon);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    background-color: rgba(244, 241, 234, 0.85);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(43, 42, 44, 0.1);
+    border-radius: 4px;
+    transition: var(--transicion-seda);
+}
+
+.btn-volver:hover {
+    background-color: var(--gris-carbon);
+    color: var(--blanco-arena);
+    transform: translateY(-2px);
+}
+
+/* --- HERO EDITORIAL (Portada) --- */
+.hero-editorial {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(43, 42, 44, 0.05);
+}
+
+.hero-content .category {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.subtitle-case {
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+    color: var(--texto-suave);
+}
+
+/* --- SECCIÓN INTRODUCCIÓN --- */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.intro-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    color: var(--texto-suave);
+}
+
+.intro-details {
+    border-left: 1px solid var(--champan-nude);
+    padding-left: 30px;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.detail-item strong {
+    font-weight: 600;
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--texto-suave);
+}
+
+/* --- GRILLA DE LOGOTIPO Y USOS --- */
+.logo-display-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.logo-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-card .caption {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    margin-top: 20px;
+}
+
+.main-logo {
+    grid-column: span 2;
+    min-height: 300px;
+}
+
+.text-card {
+    background-color: var(--gris-carbon);
+    color: var(--blanco-arena);
+    align-items: flex-start;
+    text-align: left;
+    padding: 40px;
+}
+
+.text-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.text-card p {
+    font-size: 0.95rem;
+    color: #b0aeb3;
+}
+
+/* --- SECCIÓN MUESTRAS NATIVAS (Tipografía y Color) --- */
+.estilos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.typo-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid rgba(43, 42, 44, 0.05);
+}
+
+.typo-sample {
+    font-size: 3.5rem;
+    color: var(--lavanda-desaturado);
+    line-height: 1;
+}
+
+.typo-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.typo-info p {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+
+.palette-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.color-block {
+    padding: 40px 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 140px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.color-hex {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.color-name {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* --- GALERÍA EDITORIAL & MOCKUPS --- */
+.editorial-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.editorial-item {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.editorial-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transicion-seda);
+}
+
+.large-mockup, .wide-mockup {
+    grid-column: span 2;
+    height: 500px;
+}
+
+.item-portrait {
+    height: 450px;
+}
+
+/* Efecto de Cobertura Fluida (Overlay) al pasar el mouse */
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 42, 44, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    opacity: 0;
+    transition: var(--transicion-seda);
+}
+
+.item-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: var(--transicion-seda);
+}
+
+.item-overlay p {
+    font-size: 0.95rem;
+    max-width: 400px;
+    transform: translateY(20px);
+    transition: var(--transicion-seda);
+}
+
+/* Hovers de Seda Relajados */
+.editorial-item:hover img {
+    transform: scale(1.03);
+}
+
+.editorial-item:hover .item-overlay {
+    opacity: 1;
+}
+
+.editorial-item:hover .item-overlay h3,
+.editorial-item:hover .item-overlay p {
+    transform: translateY(0);
+}
+
+/* --- FOOTER MÍNIMO --- */
+.footer-editorial {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    border-top: 1px solid rgba(43, 42, 44, 0.05);
+    letter-spacing: 1px;
+}
+
+/* --- RESPONSIVE / ADAPTABILIDAD CELULAR --- */
+@media (max-width: 768px) {
+    .container { padding: 80px 20px; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .intro-details { border-left: none; border-top: 1px solid var(--champan-nude); padding-left: 0; padding-top: 20px; }
+    .logo-display-grid { grid-template-columns: 1fr; }
+    .main-logo { grid-column: span 1; }
+    .estilos-grid { grid-template-columns: 1fr; }
+    .palette-container { grid-template-columns: 1fr 1fr; }
+    .large-mockup, .wide-mockup, .item-portrait { grid-column: span 2; height: 350px; }
+}
